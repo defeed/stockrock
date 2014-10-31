@@ -7,13 +7,13 @@ class Stock < ActiveRecord::Base
   validates :years, numericality: { only_integer: true, greater_than: 1 }
 
   def stock_values
-    period = (0..self.years)
-    Hash[period.map { |year| [year, '%.2f' % value_for_year(year)] }]
+    period = (0..years)
+    Hash[period.map { |year| [year, sprintf('%.2f', value_for_year(year))] }]
   end
-  
+
   private
-  
-  def value_for_year year
-    self.price * self.quantity * (1 + self.percentage / 100)**year
+
+  def value_for_year(year)
+    price * quantity * (1 + percentage / 100)**year
   end
 end
