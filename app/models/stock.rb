@@ -5,4 +5,15 @@ class Stock < ActiveRecord::Base
   validates :quantity, numericality: { only_integer: true, greater_than: 1 }
   validates :percentage, numericality: { greater_than: 1 }
   validates :years, numericality: { only_integer: true, greater_than: 1 }
+
+  def stock_values
+    period = (0..self.years)
+    Hash[period.map { |year| [year, '%.2f' % value_for_year(year)] }]
+  end
+  
+  private
+  
+  def value_for_year year
+    self.price * self.quantity * (1 + self.percentage / 100)**year
+  end
 end

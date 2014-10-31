@@ -1,8 +1,8 @@
-%h1 Stock page
+%h1= "Stock data for #{@stock.stock_name}"
 
 .row
   .col-sm-3
-    %table.table.table-bordered#stock-data
+    %table.table.table-bordered.table-hover#stock-data
       %tr
         %td
           %strong Stock name
@@ -23,3 +23,14 @@
         %td
           %strong Years
         %td= @stock.years
+
+  .col-sm-2
+    %table.table.table-bordered.table-hover#stock-values
+      - @stock.stock_values.each do |row|
+        %tr
+          %td= row.first
+          %td= row.last
+
+  .col-sm-7
+    #stock-graph
+      = bar_chart @stock.stock_values, discrete: true, height: '600px', library: {title: 'Stock value growth by years', chartArea: {width: '80%', height: '80%'}}

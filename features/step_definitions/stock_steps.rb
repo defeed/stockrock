@@ -39,12 +39,13 @@ Then(/^I must see the original input data:$/) do |table|
 end
 
 Then(/^list of stock values for each year:$/) do |table|
-  # table is a Cucumber::Ast::Table
-  pending # express the regexp above with the code you wish you had
+  table_rows = find('table#stock-values').all('tr')
+  rendered_table = table_rows.map { |r| r.all('tr,td').map { |c| c.text.strip } }
+  table.diff!(rendered_table)
 end
 
 Then(/^the stock growth is shown as a visual graph$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_selector('#stock-graph #chart-1')
 end
 
 Then(/^the stock data must be saved into the database for later review$/) do
