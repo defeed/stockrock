@@ -19,7 +19,7 @@ end
 
 group :development, :test do
   gem 'cucumber-rails', require: false
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 2.99.0'
   gem 'capybara'
   gem 'capybara-webkit'
   gem 'database_cleaner'
