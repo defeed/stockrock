@@ -49,7 +49,8 @@ Then(/^the stock growth is shown as a visual graph$/) do
 end
 
 Then(/^the stock data must be saved into the database for later review$/) do
-  pending # express the regexp above with the code you wish you had
+  # Throws an exception unless record with given stock_name is found
+  Stock.find_by!(stock_name: 'Company XYZ')
 end
 
 Given(/^the system has already calculated stocks$/) do |table|
