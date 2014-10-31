@@ -12,12 +12,13 @@ Then(/^I must see the front page with application title "(.*?)"$/) do |title|
   expect(page).to have_title title
 end
 
-When(/^I click "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+When(/^I click "(.*?)"$/) do |link_text|
+  click_link link_text
 end
 
-Then(/^I must see the page with title "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^I must see the page with title "(.*?)"$/) do |title|
+  # expect(page).to have_title title
+  pending
 end
 
 Then(/^I must be able to enter the following values:$/) do |table|
