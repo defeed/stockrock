@@ -11,10 +11,14 @@ gem 'jbuilder', '~> 2.0'
 gem 'haml'
 gem 'bootstrap-sass', '~> 3.3.0'
 gem 'rails_12factor', group: :production
-gem 'spring',         group: :development
+
+group :development do
+  gem 'spring'
+  gem 'rubocop', require: false
+end
 
 group :development, :test do
-  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails', require: false
   gem 'rspec-rails'
   gem 'capybara'
   gem 'capybara-webkit'
@@ -32,4 +36,3 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-

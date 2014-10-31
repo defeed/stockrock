@@ -1,0 +1,10 @@
+AllCops:
+  RunRailsCops: true
+  Exclude:
+    - 'lib/**/*'
+    - 'features/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/**/*'
+    - 'Rakefile'
