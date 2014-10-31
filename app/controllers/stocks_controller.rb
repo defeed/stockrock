@@ -5,6 +5,7 @@ class StocksController < ApplicationController
 
   def show
     @title = 'Calculation result'
+    @stock = Stock.find params[:id]
   end
 
   def new

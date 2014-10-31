@@ -33,8 +33,9 @@ Then(/^I press button "(.*?)"$/) do |button_text|
 end
 
 Then(/^I must see the original input data:$/) do |table|
-  # table is a Cucumber::Ast::Table
-  pending # express the regexp above with the code you wish you had
+  table_rows = find('table#stock-data').all('tr')
+  rendered_table = table_rows.map { |r| r.all('tr,td').map { |c| c.text.strip } }
+  table.diff!(rendered_table)
 end
 
 Then(/^list of stock values for each year:$/) do |table|
