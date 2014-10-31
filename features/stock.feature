@@ -3,12 +3,12 @@ Feature: Calculate stock productivity
   I must be able to calculate and store stock data 
  
 Scenario: Calculate prices
-  Given The web applications runs on Heroku 
+  Given The web application runs on Heroku 
  
   When I open the application url
   Then I must see the front page with application title "Stock productivity calculator"
  
-  When I press button "Enter new stock"
+  When I click "Enter new stock"
   Then I must see the page with title "Enter stock details" 
   And I must be able to enter the following values:
     | Stock name | Company XYZ | required string  |
@@ -43,7 +43,7 @@ Scenario: Calculate prices
   Then I must see the page with title "Enter stock details" 
  
 Scenario: View exisiting calculations
-  Given the web applications runs on Heroku 
+  Given The web application runs on Heroku 
   Given the system has already calculated stocks  
     | Name         | Price  | Quantity | Percentage | Years |
     | Apple        | 172.00 | 10       | 5.00       | 10    |
