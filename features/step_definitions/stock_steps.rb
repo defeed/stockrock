@@ -17,17 +17,19 @@ When(/^I click "(.*?)"$/) do |link_text|
 end
 
 Then(/^I must see the page with title "(.*?)"$/) do |title|
-  # expect(page).to have_title title
-  pending
+  expect(page).to have_title title
 end
 
 Then(/^I must be able to enter the following values:$/) do |table|
-  # table is a Cucumber::Ast::Table
-  pending # express the regexp above with the code you wish you had
+  table.raw.each do |row|
+    normalized = row[0].downcase.gsub(' ', '_')
+    form_field = "stock[#{normalized}]"
+    fill_in form_field, with: row[1]
+  end
 end
 
-Then(/^I press button "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^I press button "(.*?)"$/) do |button_text|
+  click_button button_text
 end
 
 Then(/^I must see the original input data:$/) do |table|

@@ -1,1 +1,28 @@
 %h1 New stock
+
+= render 'shared/error_messages', object: @stock
+
+= form_for @stock, html: { class: 'form-horizontal' } do |f|
+  .form-group
+    = f.label :stock_name, class: 'col-sm-2 control-label'
+    .col-sm-4
+      = f.text_field :stock_name, class: 'form-control', placeholder: 'Example: Company XYZ'
+  .form-group
+    = f.label :price, class: 'col-sm-2 control-label'
+    .col-sm-2
+      = f.number_field :price, class: 'form-control', placeholder: 'Example: 42', min: 0
+  .form-group
+    = f.label :quantity, class: 'col-sm-2 control-label'
+    .col-sm-2
+      = f.number_field :quantity, class: 'form-control', placeholder: 'Example: 365', min: 1
+  .form-group
+    = f.label :percentage, class: 'col-sm-2 control-label'
+    .col-sm-2
+      = f.number_field :percentage, class: 'form-control', placeholder: 'Example: 3', min: 0
+  .form-group
+    = f.label :years, class: 'col-sm-2 control-label'
+    .col-sm-2
+      = f.number_field :years, class: 'form-control', placeholder: 'Example: 10', min: 1
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit 'Calculate', class: 'btn btn-success btn-lg'
