@@ -2,3 +2,19 @@
 
 %p
   = link_to 'Enter new stock', new_stock_path, class: 'btn btn-primary btn-lg'
+
+- unless @stocks.blank?
+  %table.table.table-bordered.table-hover#stocks
+    %tr
+      %td Name
+      %td Price
+      %td Quantity
+      %td Percentage
+      %td Years
+    - @stocks.each do |stock|
+      %tr
+        %td= link_to stock.stock_name, stock
+        %td= sprintf('%.2f', stock.price)
+        %td= stock.quantity
+        %td= sprintf('%.2f', stock.percentage)
+        %td= stock.years

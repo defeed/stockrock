@@ -47,16 +47,16 @@ Scenario: View exisiting calculations
   Given the system has already calculated stocks  
     | Name         | Price  | Quantity | Percentage | Years |
     | Apple        | 172.00 | 10       | 5.00       | 10    |
-    | Microsoft    | 30     | 25       | 1.25       | 5     |
+    | Microsoft    | 30.00  | 25       | 1.25       | 5     |
  
   When I open the application url
   Then I must see the front page with application title "Stock productivity calculator"
   And I must see a table of saved stocks:
     | Name         | Price  | Quantity | Percentage | Years |
     | Apple        | 172.00 | 10       | 5.00       | 10    |
-    | Microsoft    | 30     | 25       | 1.25       | 5     |
+    | Microsoft    | 30.00  | 25       | 1.25       | 5     |
  
-  When I click on the calculated line "Company XYZ" 
+  When I click on the calculated line "Apple" 
   Then I must see the already calculated data
  
   When I click "Back"

@@ -51,6 +51,12 @@ end
 #   end
 #
 
+Before do
+  seed_file = Rails.root.join('db', 'stocks.yml')
+  config = YAML::load_file(seed_file)
+  Stock.create!(config)
+end
+
 # Possible values are :truncation and :transaction
 # The :transaction strategy is faster, but might give you threading problems.
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature

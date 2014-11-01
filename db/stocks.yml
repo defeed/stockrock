@@ -1,0 +1,11 @@
+- stock_name: 'Apple'
+  price: 172.00
+  quantity: 10
+  percentage: 5.00
+  years: 10
+
+- stock_name: 'Microsoft'
+  price: 30.00
+  quantity: 25
+  percentage: 1.25
+  years: 5

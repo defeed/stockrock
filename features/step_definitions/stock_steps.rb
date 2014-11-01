@@ -54,19 +54,23 @@ Then(/^the stock data must be saved into the database for later review$/) do
 end
 
 Given(/^the system has already calculated stocks$/) do |table|
-  # table is a Cucumber::Ast::Table
-  pending # express the regexp above with the code you wish you had
+  table.rows.each do |row|
+    Stock.find_by!(stock_name: row[0], price: row[1], quantity: row[2])
+  end
 end
 
 Then(/^I must see a table of saved stocks:$/) do |table|
-  # table is a Cucumber::Ast::Table
-  pending # express the regexp above with the code you wish you had
+  table_rows = find('table#stocks').all('tr')
+  rendered_table = table_rows.map { |r| r.all('tr,td').map { |c| c.text.strip } }
+  table.diff!(rendered_table)
 end
 
-When(/^I click on the calculated line "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+When(/^I click on the calculated line "(.*?)"$/) do |link_text|
+  click_link link_text
 end
 
 Then(/^I must see the already calculated data$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_selector('#stock-data')
+  expect(page).to have_selector('#stock-values')
+  expect(page).to have_selector('#stock-graph #chart-1')
 end
