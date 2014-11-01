@@ -1,7 +1,10 @@
 %p
-  = link_to :back, class: 'btn btn-default btn-primary' do
+  = link_to :back, class: 'btn btn-primary' do
     %span.glyphicon.glyphicon-chevron-left
     Back
+  = link_to @stock, data: {method: :delete, confirm: 'Are you sure?'}, class: 'btn btn-danger' do
+    %span.glyphicon.glyphicon-trash
+    Delete
 %h1= "Stock data for #{@stock.stock_name}"
 
 .row
