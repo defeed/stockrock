@@ -21,6 +21,7 @@ end
 group :development, :test do
   gem 'cucumber-rails', require: false
   gem 'rspec-rails', '~> 2.99.0'
+  gem 'factory_girl_rails'
   gem 'capybara'
   gem 'capybara-webkit'
   gem 'database_cleaner'
