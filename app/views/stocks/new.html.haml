@@ -10,7 +10,7 @@
   .form-group
     = f.label :price, class: 'col-sm-2 control-label'
     .col-sm-2
-      = f.number_field :price, class: 'form-control', placeholder: 'Example: 42', min: 0
+      = f.number_field :price, class: 'form-control', placeholder: 'Example: 42.50', min: 0, step: 'any'
   .form-group
     = f.label :quantity, class: 'col-sm-2 control-label'
     .col-sm-2
@@ -18,7 +18,7 @@
   .form-group
     = f.label :percentage, class: 'col-sm-2 control-label'
     .col-sm-2
-      = f.number_field :percentage, class: 'form-control', placeholder: 'Example: 3', min: 0
+      = f.number_field :percentage, class: 'form-control', placeholder: 'Example: 3.5', min: 0, step: 'any'
   .form-group
     = f.label :years, class: 'col-sm-2 control-label'
     .col-sm-2
