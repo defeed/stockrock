@@ -34,7 +34,7 @@ end
 
 Then(/^I must see the original input data:$/) do |table|
   table_rows = find('table#stock-data').all('tr')
-  rendered_table = table_rows.map { |r| r.all('tr,td').map { |c| c.text.strip } }
+  rendered_table = table_rows.map { |r| r.all('th,tr,td').map { |c| c.text.strip } }
   table.diff!(rendered_table)
 end
 
@@ -61,7 +61,7 @@ end
 
 Then(/^I must see a table of saved stocks:$/) do |table|
   table_rows = find('table#stocks').all('tr')
-  rendered_table = table_rows.map { |r| r.all('tr,td').map { |c| c.text.strip } }
+  rendered_table = table_rows.map { |r| r.all('th,tr,td').map { |c| c.text.strip } }
   table.diff!(rendered_table)
 end
 

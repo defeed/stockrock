@@ -5,16 +5,18 @@
 
 - unless @stocks.blank?
   %table.table.table-bordered.table-hover#stocks
-    %tr
-      %td Name
-      %td Price
-      %td Quantity
-      %td Percentage
-      %td Years
-    - @stocks.each do |stock|
+    %thead
       %tr
-        %td= link_to stock.stock_name, stock
-        %td= sprintf('%.2f', stock.price)
-        %td= stock.quantity
-        %td= sprintf('%.2f', stock.percentage)
-        %td= stock.years
+        %th Name
+        %th Price
+        %th Quantity
+        %th Percentage
+        %th Years
+    %tbody
+      - @stocks.each do |stock|
+        %tr
+          %td= link_to stock.stock_name, stock
+          %td= sprintf('%.2f', stock.price)
+          %td= stock.quantity
+          %td= sprintf('%.2f', stock.percentage)
+          %td= stock.years

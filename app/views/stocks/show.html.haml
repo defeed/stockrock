@@ -11,24 +11,19 @@
   .col-sm-3
     %table.table.table-bordered.table-hover#stock-data
       %tr
-        %td
-          %strong Stock name
+        %th Stock name
         %td= @stock.stock_name
       %tr
-        %td
-          %strong Price
+        %th Price
         %td= '%.2f' % @stock.price
       %tr
-        %td
-          %strong Quantity
+        %th Quantity
         %td= @stock.quantity
       %tr
-        %td
-          %strong Percentage
+        %th Percentage
         %td= '%.2f' % @stock.percentage
       %tr
-        %td
-          %strong Years
+        %th Years
         %td= @stock.years
 
   .col-sm-2
